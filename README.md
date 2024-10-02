@@ -13,11 +13,11 @@
 ### Linux
 1. clone project repo 
    ```
-   git clone https://github.com/Widiskel/vana-data-hero-bot
+   git clone https://github.com/vinskasenda/vanadatahero-bot.git
    ``` 
    and cd to project dir 
    ```
-   cd vana-data-hero-bot
+   cd vanadatahero-bot
    ```
 2. Run 
    ```
