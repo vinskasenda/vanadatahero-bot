@@ -1,131 +1,131 @@
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { Helper } from '../utils/helper.js';
-import a2_0x19cd5b from '../utils/logger.js';
-import a2_0x53fc8b from 'axios';
+import a2_0x250ae5 from '../utils/logger.js';
+import a2_0x16e2db from 'axios';
 export class API {
-  constructor(_0x23fa79, _0xd52d27, _0x543e52, _0x39758d, _0x51dda5, _0x48b03b) {
+  constructor(_0x22bc8b, _0x3c22e6, _0x5d29bd, _0xd089af, _0x47d58d, _0x3b36dc) {
     this.ua = Helper.randomUserAgent();
-    this.query = _0x23fa79;
-    this.proxy = _0xd52d27;
-    this.url = _0x543e52;
-    this.origin = _0x51dda5;
-    this.host = _0x39758d;
-    this.referer = _0x48b03b;
+    this.query = _0x22bc8b;
+    this.proxy = _0x3c22e6;
+    this.url = _0x5d29bd;
+    this.origin = _0x47d58d;
+    this.host = _0xd089af;
+    this.referer = _0x3b36dc;
   }
-  ["generateHeaders"](_0x284ae4) {
-    const _0x333747 = {
+  ["generateHeaders"](_0x27ebab) {
+    const _0x50f50a = {
       'Accept': "application/json, text/plain, */*",
-      'Accept-Language': "en-US,en;q=0.9,id;q=0.8",
+      'Accept-Language': 'en-US,en;q=0.9,id;q=0.8',
       'Content-Type': "application/json",
       'Sec-Fetch-Dest': "empty",
       'Sec-Fetch-Site': "same-site",
-      'Sec-Fetch-Mode': "cors",
+      'Sec-Fetch-Mode': 'cors',
       'Host': this.host,
       'Origin': this.origin,
       'Referer': this.origin + '/',
       'x-telegram-web-app-init-data': this.query
     };
-    if (_0x284ae4) {
-      _0x333747.Authorization = "Bearer " + _0x284ae4;
+    if (_0x27ebab) {
+      _0x50f50a.Authorization = "Bearer " + _0x27ebab;
     }
-    return _0x333747;
+    return _0x50f50a;
   }
-  async ["fetch"](_0x16b6f5, _0x13df6f = "GET", _0x389304, _0x5ba29f = {}, _0x423dea = {}) {
+  async ["fetch"](_0x8774d7, _0x1e071f = "GET", _0x4c46e6, _0x1ffdfc = {}, _0x423ace = {}) {
     try {
-      return this.proxy ? await this.fetchAxios(_0x16b6f5, _0x13df6f, _0x389304, _0x5ba29f, _0x423dea) : await this.fetchHttp(_0x16b6f5, _0x13df6f, _0x389304, _0x5ba29f, _0x423dea);
-    } catch (_0x3d52e8) {
-      throw _0x3d52e8;
+      return this.proxy ? await this.fetchAxios(_0x8774d7, _0x1e071f, _0x4c46e6, _0x1ffdfc, _0x423ace) : await this.fetchHttp(_0x8774d7, _0x1e071f, _0x4c46e6, _0x1ffdfc, _0x423ace);
+    } catch (_0x2a3a86) {
+      throw _0x2a3a86;
     }
   }
-  async ["fetchHttp"](_0x13a045, _0x1673b0, _0x9c623f, _0x46a417 = {}, _0x3b2585 = {}) {
+  async ['fetchHttp'](_0x2d05c1, _0x55717a, _0x2340a7, _0x448432 = {}, _0x2a5c9f = {}) {
     try {
-      const _0x53cadb = '' + this.url + _0x13a045;
-      const _0x471515 = {
-        ..._0x3b2585,
-        ...this.generateHeaders(_0x9c623f)
+      const _0x1877b2 = '' + this.url + _0x2d05c1;
+      const _0x1bda7e = {
+        ..._0x2a5c9f,
+        ...this.generateHeaders(_0x2340a7)
       };
-      const _0x12978a = {
-        'headers': _0x471515,
-        'method': _0x1673b0
+      const _0x43c3f1 = {
+        'headers': _0x1bda7e,
+        'method': _0x55717a
       };
-      a2_0x19cd5b.info(_0x1673b0 + " : " + _0x53cadb + " " + (this.proxy ? this.proxy : ''));
-      a2_0x19cd5b.info("Request Header : " + JSON.stringify(_0x471515));
-      if (_0x1673b0 !== "GET") {
-        _0x12978a.body = '' + JSON.stringify(_0x46a417);
-        a2_0x19cd5b.info("Request Body : " + _0x12978a.body);
+      a2_0x250ae5.info(_0x55717a + " : " + _0x1877b2 + " " + (this.proxy ? this.proxy : ''));
+      a2_0x250ae5.info("Request Header : " + JSON.stringify(_0x1bda7e));
+      if (_0x55717a !== 'GET') {
+        _0x43c3f1.body = '' + JSON.stringify(_0x448432);
+        a2_0x250ae5.info("Request Body : " + _0x43c3f1.body);
       }
-      const _0xfd3bac = await fetch(_0x53cadb, _0x12978a);
-      a2_0x19cd5b.info("Response : " + _0xfd3bac.status + " " + _0xfd3bac.statusText);
-      if (_0xfd3bac.ok || _0xfd3bac.status == 0x190 || _0xfd3bac.status == 0x193) {
-        const _0x3610d1 = _0xfd3bac.headers.get("content-type");
-        let _0x2a099e;
-        if (_0x3610d1 && _0x3610d1.includes("application/json")) {
-          _0x2a099e = {
-            'status': _0xfd3bac.status,
-            ...(await _0xfd3bac.json())
+      const _0x486b46 = await fetch(_0x1877b2, _0x43c3f1);
+      a2_0x250ae5.info("Response : " + _0x486b46.status + " " + _0x486b46.statusText);
+      if (_0x486b46.ok || _0x486b46.status == 0x190 || _0x486b46.status == 0x193) {
+        const _0x20736f = _0x486b46.headers.get('content-type');
+        let _0x335226;
+        if (_0x20736f && _0x20736f.includes('application/json')) {
+          _0x335226 = {
+            'status': _0x486b46.status,
+            ...(await _0x486b46.json())
           };
         } else {
-          _0x2a099e = {
-            'status': _0xfd3bac.status,
-            ...(await _0xfd3bac.text())
+          _0x335226 = {
+            'status': _0x486b46.status,
+            ...(await _0x486b46.text())
           };
         }
-        if (_0xfd3bac.ok) {
-          _0x2a099e.status = 0xc8;
+        if (_0x486b46.ok) {
+          _0x335226.status = 0xc8;
         }
-        a2_0x19cd5b.info("Response Data : " + JSON.stringify(_0x2a099e));
-        return _0x2a099e;
+        a2_0x250ae5.info("Response Data : " + JSON.stringify(_0x335226));
+        return _0x335226;
       } else {
-        throw new Error(_0xfd3bac.status + " - " + _0xfd3bac.statusText);
+        throw new Error(_0x486b46.status + " - " + _0x486b46.statusText);
       }
-    } catch (_0x4633ad) {
-      a2_0x19cd5b.error("Error : " + _0x4633ad.message);
-      throw _0x4633ad;
+    } catch (_0x55f9e6) {
+      a2_0x250ae5.error("Error : " + _0x55f9e6.message);
+      throw _0x55f9e6;
     }
   }
-  async ["fetchAxios"](_0x2b658f, _0x549b8d = 'GET', _0x12336b, _0x40ddad = {}, _0x493f7a = {}) {
+  async ["fetchAxios"](_0x158d34, _0x48b09d = "GET", _0xbd30a4, _0x278261 = {}, _0x2a6cb9 = {}) {
     try {
-      const _0x3ca2af = '' + this.url + _0x2b658f;
-      const _0x5581a4 = {
-        ..._0x493f7a,
-        ...(await this.generateHeaders(_0x12336b))
+      const _0x28ee20 = '' + this.url + _0x158d34;
+      const _0x5decd5 = {
+        ..._0x2a6cb9,
+        ...(await this.generateHeaders(_0xbd30a4))
       };
-      this.axiosInstance = a2_0x53fc8b.create({
-        'baseURL': _0x3ca2af,
+      this.axiosInstance = a2_0x16e2db.create({
+        'baseURL': _0x28ee20,
         'headers': {}
       });
-      a2_0x19cd5b.info(_0x549b8d + " : " + _0x3ca2af + " " + (this.proxy ? this.proxy : ''));
-      a2_0x19cd5b.info("Request Header : " + JSON.stringify(_0x5581a4));
-      a2_0x19cd5b.info("Request Body : " + JSON.stringify(_0x40ddad));
-      const _0x5713cc = {
-        'method': _0x549b8d,
-        'url': _0x3ca2af,
-        'headers': _0x5581a4,
+      a2_0x250ae5.info(_0x48b09d + " : " + _0x28ee20 + " " + (this.proxy ? this.proxy : ''));
+      a2_0x250ae5.info("Request Header : " + JSON.stringify(_0x5decd5));
+      a2_0x250ae5.info("Request Body : " + JSON.stringify(_0x278261));
+      const _0xa7f552 = {
+        'method': _0x48b09d,
+        'url': _0x28ee20,
+        'headers': _0x5decd5,
         'httpsAgent': new HttpsProxyAgent(this.proxy),
-        'data': _0x40ddad
+        'data': _0x278261
       };
-      const _0x38c618 = await this.axiosInstance.request(_0x5713cc);
-      const _0x120451 = {
-        'status': _0x38c618.status,
-        ..._0x38c618.data
+      const _0x17750b = await this.axiosInstance.request(_0xa7f552);
+      const _0x1b59cd = {
+        'status': _0x17750b.status,
+        ..._0x17750b.data
       };
-      a2_0x19cd5b.info("Response : " + _0x38c618.status + " " + _0x38c618.statusText);
-      let _0x9cd31e = JSON.stringify(_0x38c618.data);
-      if (_0x9cd31e.length > 0x96) {
-        _0x9cd31e = _0x9cd31e.substring(0x0, 0x96) + "...";
+      a2_0x250ae5.info("Response : " + _0x17750b.status + " " + _0x17750b.statusText);
+      let _0x56741a = JSON.stringify(_0x17750b.data);
+      if (_0x56741a.length > 0x96) {
+        _0x56741a = _0x56741a.substring(0x0, 0x96) + '...';
       }
-      a2_0x19cd5b.info("Response Data : " + _0x9cd31e);
-      return _0x120451;
-    } catch (_0x24da59) {
-      a2_0x19cd5b.error("Error : " + _0x24da59.message);
-      if (_0x24da59.response && _0x24da59.status === 0x190) {
-        const _0xf79f33 = {
-          'status': _0x24da59.status,
-          ..._0x24da59.response.data
+      a2_0x250ae5.info("Response Data : " + _0x56741a);
+      return _0x1b59cd;
+    } catch (_0x5ac7b8) {
+      a2_0x250ae5.error("Error : " + _0x5ac7b8.message);
+      if (_0x5ac7b8.response && _0x5ac7b8.status === 0x190) {
+        const _0x11b1e0 = {
+          'status': _0x5ac7b8.status,
+          ..._0x5ac7b8.response.data
         };
-        return _0xf79f33;
+        return _0x11b1e0;
       } else {
-        throw _0x24da59;
+        throw _0x5ac7b8;
       }
     }
   }
